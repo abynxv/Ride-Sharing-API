@@ -1,23 +1,101 @@
-venv
-.venv
-*.env
-*.env.local
- 
- # migrations files
-*/migrations/*
-!*/migrations/__init__.py
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
 
+# C extensions
+*.so
 
- *.pyc
- __pycache__/
- *.pyo
- *.pyd
- *.db
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
 
-env
- .env.*
- /*.log
- /env
+# PyInstaller
+#  Usually these files are written by a python script from a template
+*.manifest
+*.spec
 
- db.sqlite3
- *.sqlite3
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff:
+*.log
+local_settings.py
+db.sqlite3
+media/
+staticfiles/
+static/
+
+# If using virtualenv
+venv/
+ENV/
+env/
+env.bak/
+venv.bak/
+
+# VS Code
+.vscode/
+
+# PyCharm
+.idea/
+
+# mypy
+.mypy_cache/
+
+# celery beat schedule file
+celerybeat-schedule
+
+# dotenv environment variables file
+.env
+
+# coverage reports
+.coverage
+
+# Django migrations
+*/migrations/*.pyc
+*/migrations/*.py[cod]
+*/migrations/__pycache__/
+
+# macOS files
+.DS_Store
+
+# JetBrains IDEs
+*.iml
+
+# Backup files
+*.bak
+*~
+

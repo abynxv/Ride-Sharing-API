@@ -1,0 +1,23 @@
+venv
+.venv
+*.env
+*.env.local
+ 
+ # migrations files
+*/migrations/*
+!*/migrations/__init__.py
+
+
+ *.pyc
+ __pycache__/
+ *.pyo
+ *.pyd
+ *.db
+
+env
+ .env.*
+ /*.log
+ /env
+
+ db.sqlite3
+ *.sqlite3

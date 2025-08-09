@@ -6,7 +6,7 @@ A backend API built with Django Rest Framework for ride-sharing applications. Th
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/your-username/ride-sharing-api.git
+   git clone https://github.com/abynxv/Ride-Sharing-API.git
    cd ride-sharing-api
    ```
 

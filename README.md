@@ -83,6 +83,15 @@ The API will be available at `http://127.0.0.1:8000/`
 
 ## API Testing with Postman
 
+A Postman collection is included in this repository as `Ride Share API.postman_collection.json`.
+
+### How to use:
+1. Open Postman
+2. Click **Import** → **Upload Files**
+3. Select `Ride Share API.postman_collection.json`
+4. The collection will be imported with all endpoints ready for testing
+
+
 ### User Auth
 
 ## User Register

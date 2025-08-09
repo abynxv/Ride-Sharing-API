@@ -1,3 +1,5 @@
+> This project is under development.
+
 # Ride Sharing API
 
 A backend API built with Django Rest Framework for ride-sharing applications. The system enables riders to request rides and drivers to manage ride requests through a comprehensive REST API.

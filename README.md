@@ -5,25 +5,23 @@ This branch contains ongoing development for real-time ride tracking and matchin
 
 ## API Endpoints
 
-### Authentication Endpoints (Common)
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| POST | `/auth/register/` | Register new user account |
-| POST | `/auth/login/` | Login and receive authentication token |
-| POST | `auth/token/refresh/` | Using refresh token creating new access token |
-
-
-### Driver Endpoints
-
-| HTTP Method | URL Path                                        | Description                                                                                                    |
-| ----------- | ----------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | 
-| **GET**     | `api/driver/rides/`                                | List all nearby rides with status `'requested'` and no driver assigned (filtered by driver location)           |           
-| **POST**    | `api/driver/rides/{ride_id}/accept-ride/`          | Driver accepts the ride, assigns themselves, sets status to `'accepted'`                                       |
-| **PATCH**   | `api/driver/rides/{ride_id}/update_status/`        | Update ride status (e.g., `in_progress`, `completed`) by the assigned driver                                   | 
-| **POST**    | `api/driver/update-location/`                      | Update the current GPS coordinates of the logged-in driver (update `current_latitude` and `current_longitude`) |
-| **GET**     | `api/driver/rides/assigned-rides/`                 | List all rides assigned to the logged-in driver (all statuses)                                                 |
-| **GET**     | `api/driver/rides/{ride_id}/assigned-ride-detail/` | Get detailed info for a specific ride assigned to the driver                                                   | 
-
-### Rider Endpoints
+## Rider Endpoints
+```bash
+/api/rider/rides/	GET	List all rides requested by the rider
+/api/rider/rides/	POST	Create a new ride request
+/api/rider/rides/{id}/	GET	Retrieve details of a specific ride
+/api/rider/rides/{id}/	PUT/PATCH	Update ride info (only if status is 'requested')
+/api/rider/rides/{id}/cancel-ride/	POST	Cancel a ride (only if status is 'requested' or 'accepted')
+/api/rider/rides/{id}/track-ride/	GET	Get current ride status and driver location
+```
+## Driver Endpoints
+```bash
+api/driver/rides/ — List available ride requests nearby
+api/driver/rides/{id}/accept-ride/ — Accept a ride request
+api/driver/rides/{id}/update_status/ — Update the ride status
+api/driver/update-location/ — Update driver’s current location (no ride ID needed)
+api/driver/rides/assigned-rides/ — List all rides assigned to the driver
+api/driver/rides/{id}/assigned-ride-detail/ — Get details of a specific assigned ride
+```
 
 

@@ -5,7 +5,6 @@ from authenticate.models import CustomUser
 class Ride(models.Model):
     STATUS_CHOICES = [
         ("requested", "Requested"),
-        ("matched", "Matched"),
         ("accepted", "Accepted"),
         ("in_progress", "In Progress"),
         ("completed", "Completed"),

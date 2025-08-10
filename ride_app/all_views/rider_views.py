@@ -19,8 +19,18 @@ class RiderViewSet(ModelViewSet):
 
     def perform_create(self, serializer):
         user = self.request.user
+
         if user.ride_block_until and timezone.now() < user.ride_block_until:
             raise ValidationError({"error": "You cannot request a new ride yet."})
+
+        active_ride_exists = Ride.objects.filter(
+            rider=user,
+            status__in=["requested", "accepted", "in_progress"]
+        ).exists()
+
+        if active_ride_exists:
+            raise ValidationError({"error": "You already have an active ride. Please complete or cancel it before requesting another."})
+
         serializer.save(rider=user)
 
     def get_queryset(self):

@@ -1,6 +1,6 @@
 > ## Development Status
 
-This branch contains ongoing development for real-time ride tracking and matching ride requests. Updates and implementations are in progress and will be completed soon.
+This branch contains ongoing development for real-time ride tracking,matching ride requests and permission classes. Updates and implementations are in progress and will be completed soon.
 
 
 ## API Endpoints

@@ -7,12 +7,12 @@ This branch contains ongoing development for real-time ride tracking,matching ri
 
 ## Rider Endpoints
 ```bash
-/api/rider/rides/	GET	List all rides requested by the rider
-/api/rider/rides/	POST	Create a new ride request
-/api/rider/rides/{id}/	GET	Retrieve details of a specific ride
-/api/rider/rides/{id}/	PUT/PATCH	Update ride info (only if status is 'requested')
-/api/rider/rides/{id}/cancel-ride/	POST	Cancel a ride (only if status is 'requested' or 'accepted')
-/api/rider/rides/{id}/track-ride/	GET	Get current ride status and driver location
+/api/rider/rides/	GET -	List all rides requested by the rider
+/api/rider/rides/	POST -	Create a new ride request
+/api/rider/rides/{id}/	GET -	Retrieve details of a specific ride
+/api/rider/rides/{id}/	PUT/PATCH	- Update ride info (only if status is 'requested')
+/api/rider/rides/{id}/cancel-ride/ - POST	Cancel a ride (only if status is 'requested' or 'accepted')
+/api/rider/rides/{id}/track-ride/	GET	- Get current ride status and driver location
 ```
 ## Driver Endpoints
 ```bash

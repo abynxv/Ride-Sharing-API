@@ -16,8 +16,9 @@ class DriverRideViewSet(ModelViewSet):
     permission_classes = [IsAuthenticated, IsDriver]
 
     def get_queryset(self):
-        driver_lat = self.request.user.current_latitude
-        driver_lon = self.request.user.current_longitude
+        
+        driver_lat = float(self.request.user.current_latitude or 0)
+        driver_lon = float(self.request.user.current_longitude or 0)
         radius_km = 5
         rides = Ride.objects.filter(status='requested', driver__isnull=True)
         nearby_rides = []
@@ -39,9 +40,9 @@ class DriverRideViewSet(ModelViewSet):
         ride.save()
         return Response({"message": "Ride accepted successfully."}, status=status.HTTP_200_OK)
 
-    @action(detail=True, methods=['patch'], url_path='update_status')
+    @action(detail=True, methods=['patch'], url_path='update-status')
     def update_status(self, request, pk=None):
-        ride = self.get_object_or_404(Ride, pk=pk, driver=request.user)
+        ride = get_object_or_404(Ride, pk=pk, driver=request.user)
         new_status = request.data.get('status')
 
         if new_status not in dict(Ride.STATUS_CHOICES).keys():
@@ -72,7 +73,7 @@ class DriverRideViewSet(ModelViewSet):
 
     @action(detail=False, methods=['get'], url_path='assigned-rides')
     def assigned_rides(self, request):
-        rides = Ride.objects.filter(driver=request.user)
+        rides = Ride.objects.filter(driver_id=request.user.id).exclude(status='cancelled')
         serializer = self.get_serializer(rides, many=True)
         return Response(serializer.data)
 

@@ -6,7 +6,7 @@ from rest_framework import status
 from rest_framework.permissions import IsAuthenticated
 from .. models import Ride
 from .. serializers import RideSerializer
-from .. permissions import IsDriver
+from ...authenticate.permissions import IsDriver
 from .. utils import haversine
 
 

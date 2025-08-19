@@ -9,7 +9,7 @@ from django.utils import timezone
 from datetime import timedelta
 from .. models import Ride
 from .. serializers import RideSerializer
-from .. permissions import IsRider
+from ...authenticate.permissions import IsRider
 
 
 class RiderViewSet(ModelViewSet):
